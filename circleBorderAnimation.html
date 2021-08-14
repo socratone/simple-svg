@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Border Animation</title>
+  </head>
+  <style>
+    svg {
+      transform: rotate(-90deg);
+    }
+
+    circle {
+      animation: moveCircle 1s ease-in-out alternate infinite;
+    }
+
+    @keyframes moveCircle {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
+  <body>
+    <svg width="100" height="100">
+      <circle
+        id="circle"
+        cx="50"
+        cy="50"
+        r="45"
+        fill="none"
+        stroke="dodgerblue"
+        stroke-width="5px"
+      />
+    </svg>
+    <script>
+      const circle = document.getElementById('circle');
+      const circleLength = circle.getTotalLength();
+      circle.style.strokeDasharray = circleLength;
+      circle.style.strokeDashoffset = circleLength;
+    </script>
+  </body>
+</html>

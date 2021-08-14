@@ -6,6 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Border Animation</title>
   </head>
+  <style>
+    rect {
+      stroke-dasharray: 400;
+      stroke-dashoffset: 400;
+      animation: moveRect 1s ease-in-out alternate infinite;
+    }
+
+    @keyframes moveRect {
+      to {
+        stroke-dashoffset: 0;
+      }
+    }
+  </style>
   <body>
     <svg width="100" height="100">
       <rect
@@ -17,17 +30,7 @@
         fill="none"
         stroke-width="10"
         stroke="dodgerblue"
-        stroke-dasharray="200"
-        stroke-dashoffset="0"
       />
     </svg>
-    <script>
-      const rect = document.getElementById('rect');
-      let offset = 0;
-      setInterval(() => {
-        rect.style.strokeDashoffset = offset;
-        offset += 3;
-      }, 10);
-    </script>
   </body>
 </html>
